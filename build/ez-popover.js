@@ -176,7 +176,7 @@ Popover.styles = css `
       --popover__border-radius: 8px;
       --popover__textAlign: center;
       --popover__maxWidth: 380px;
-      --popover__minWidth: 0px;
+      --popover__minWidth: 175px;
       --popover__border: none;
       --popover__boxShadow: none;
     }

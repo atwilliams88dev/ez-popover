@@ -22,7 +22,7 @@ import commonjs from '@rollup/plugin-commonjs';
 export default {
   input: 'build/ez-popover.js',
   output: {
-    file: 'ez-popover.bundled.js',
+    file: '../popover/index.js',
     format: 'esm',
   },
   onwarn(warning) {
