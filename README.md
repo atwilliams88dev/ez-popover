@@ -43,16 +43,16 @@ npm install ez-popover
 
 ## CSS Variables available
 
---font**family: Arial; <br/>
---font**size: 17px;<br/>
---color**background: #333;<br/>
---color**text: white;<br/>
---popover**padding: 4px 16px;<br/>
---popover**border-radius: 8px;<br/>
---popover**textAlign: center;<br/>
---popover**maxWidth: 380px;<br/>
---popover**minWidth: 0px;<br/>
---popover**border: none;<br/>
+--font\_\_family: Arial; <br/>
+--font\_\_size: 17px;<br/>
+--color\_\_background: #333;<br/>
+--color\_\_text: white;<br/>
+--popover\_\_padding: 4px 16px;<br/>
+--popover\_\_border-radius: 8px;<br/>
+--popover\_\_textAlign: center;<br/>
+--popover\_\_maxWidth: 380px;<br/>
+--popover\_\_minWidth: 0px;<br/>
+--popover\_\_border: none;<br/>
 --popover\_\_boxShadow: none;<br/>
 
 ## CSS Example
