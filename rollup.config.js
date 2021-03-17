@@ -16,11 +16,13 @@ import filesize from 'rollup-plugin-filesize';
 import {terser} from 'rollup-plugin-terser';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import {babel} from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-  input: 'my-element.js',
+  input: 'build/ez-popover.js',
   output: {
-    file: 'my-element.bundled.js',
+    file: 'ez-popover.bundled.js',
     format: 'esm',
   },
   onwarn(warning) {
@@ -30,7 +32,11 @@ export default {
   },
   plugins: [
     replace({'Reflect.decorate': 'undefined'}),
-    resolve(),
+    babel(),
+    commonjs(),
+    resolve({
+      browser: true,
+    }),
     terser({
       module: true,
       warnings: true,

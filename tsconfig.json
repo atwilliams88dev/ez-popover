@@ -6,9 +6,10 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./",
+    "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
+    "baseUrl": "./",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -17,6 +18,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "types": ["cypress", "@testing-library/cypress"],
     "plugins": [
       {
         "name": "ts-lit-plugin",
