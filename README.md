@@ -4,6 +4,21 @@ Is a very simple to use popover element. We leverage the power of CSS variables 
 
 <img width="300px" src="./screenshot.png"></img>
 
+## Install
+
+### CDN
+
+```js
+<script
+  type="module"
+  src="https://unpkg.com/ez-popover@1.0.2/index.js"
+></script>
+```
+
+### NPM
+
+npm install ez-popover
+
 ## Quickstart
 
 ```html
