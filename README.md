@@ -1,6 +1,6 @@
 # EZ Popover
 
-Is a very simple to use Popover element to use. We leverage the power of CSS variables to allow for easy styling of the component. The popover element takes care of placement - no need to pass in a top, bottom, right, or left.
+Is a very simple to use popover element. We leverage the power of CSS variables to allow for easy styling of the component. The popover element takes care of placement - no need to pass in a top, bottom, right, or left.
 
 <img width="300px" src="./screenshot.png"></img>
 
