@@ -7,6 +7,9 @@ Is a very simple to use popover element. We leverage the power of CSS variables 
 ## Quickstart
 
 ```html
+<head>
+  <script type="module" src="../node_modules/ez-popover/index.js"></script>
+</head>
 <div id="p1">
   <!-- A wrapping element is NOT required but is recommended -->
   <ez-popover id="ez-popover1">

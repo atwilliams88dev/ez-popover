@@ -1,9 +1,13 @@
 {
   "name": "ez-popover",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "The easiest popover component you've ever used",
-  "main": "build/ez-popover.js",
+  "main": "index.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atwilliams88dev/ez-popover.git"
+  },
   "scripts": {
     "build": "tsc",
     "postbuild": "rollup -c",
@@ -19,14 +23,13 @@
   },
   "keywords": [
     "web-components",
-    "lit-element",
-    "typescript"
+    "popover",
+    "ez popover"
   ],
   "author": "The Polymer Authors",
   "license": "BSD-3-Clause",
   "dependencies": {
     "lit-element": "^2.3.1",
-    "rxjs": "^5.5.12",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
