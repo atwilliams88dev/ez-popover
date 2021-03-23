@@ -13,6 +13,8 @@
       }
       #p1 ez-popover {
         --popover__minWidth: 250px;
+        --popover__border_color: red;
+        --popover__border_width: 1px;
       }
       #p2 ez-popover {
         --popover__minWidth: 100px;
@@ -44,7 +46,7 @@
     </div>
 
     <div id="p2">
-      <ez-popover id="Alex" data-testid="popover">
+      <ez-popover id="Alex" showArrow="false" data-testid="popover">
         <button slot="popover__target" data-testid="popover__target">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +60,12 @@
             />
           </svg>
         </button>
-        <p slot="popover__body" id="popover__body" data-testid="popover__body">
+        <p
+          slot="popover__body"
+          id="popover__body"
+          showArrow="false"
+          data-testid="popover__body"
+        >
           Hello World
         </p>
       </ez-popover>

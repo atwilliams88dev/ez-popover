@@ -26,8 +26,10 @@ export class Popover extends LitElement {
       --popover__textAlign: center;
       --popover__maxWidth: 380px;
       --popover__minWidth: 175px;
-      --popover__border: none;
+      --popover__width: 0px;
       --popover__boxShadow: none;
+      --popover__border_color: #ccc;
+      --popover__border_width: 0px;
     }
 
     .c-popover {
@@ -51,8 +53,30 @@ export class Popover extends LitElement {
       position: absolute;
       min-width: var(--popover__minWidth);
       max-width: var(--popover__maxWidth);
-      border: var(--popover__border);
       box-shadow: var(--popover__boxShadow);
+      border: var(--popover__border_width) solid var(--popover__border_color);
+    }
+    .popover__arrow {
+      position: absolute;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+    .popover__arrow--top {
+      top: -17px;
+    }
+    .popover__arrow--bottom {
+      transform: rotate(180deg);
+      margin-top: -3px;
+    }
+    .popover__arrow--left {
+      left: 12px;
+    }
+    .popover__arrow--right {
+      right: 12px;
+    }
+    .popover__arrow--center {
+      left: calc(50% - 12px);
     }
     .h-hide {
       visibility: hidden !important;
@@ -72,6 +96,10 @@ export class Popover extends LitElement {
   // This is the only required property
   @property({type: String})
   id: string = uuidv4();
+
+  // Do you want the popover element to have a Arrow element attached
+  @property()
+  showArrow: string = 'true';
 
   /**
    * If you want to pass your own custom animation you can pass in a keyframes array and the keyframeOptions
@@ -158,6 +186,24 @@ export class Popover extends LitElement {
         position = 'bottom';
       }
 
+      function removeArrowH(elm: Element | null) {
+        if (elm) {
+          elm.classList.remove(...elm.classList);
+          elm.classList.add('popover__arrow');
+        }
+      }
+      function determineArrowH() {
+        if (left > popoverWidth && popoverWidth < bodyPosition.width - right) {
+          return 'popover__arrow--center';
+        }
+        if (left > popoverWidth && popoverWidth > bodyPosition.width - right) {
+          return 'popover__arrow--right';
+        }
+        if (left < popoverWidth && popoverWidth < bodyPosition.width - right) {
+          return 'popover__arrow--left';
+        } else return 'popover__arrow--center';
+      }
+
       /**
        * Generate Horizontal Location for popover element based on the Body element and the Popover Target
        */
@@ -184,13 +230,13 @@ export class Popover extends LitElement {
               opacity: 0,
               transform: `
               translateX(${getHorizontalLocation()}px) 
-              translateY(${position === 'top' ? -popoverHeight - 60 : 30}px)`,
+              translateY(${position === 'top' ? -popoverHeight - 75 : 30}px)`,
             },
             {
               opacity: 1,
               transform: `
               translateX(${getHorizontalLocation()}px) 
-              translateY(${position === 'top' ? -popoverHeight - 40 : 10}px)`,
+              translateY(${position === 'top' ? -popoverHeight - 50 : 15}px)`,
             },
           ],
           {
@@ -200,6 +246,19 @@ export class Popover extends LitElement {
             easing: 'ease-out',
           }
         );
+      }
+      if (this.showArrow === 'true') {
+        let shadow = document.getElementById(this.id)?.shadowRoot!;
+        let arrow = shadow.querySelector('#' + `${this.id}-arrow`);
+        removeArrowH(arrow);
+        arrow?.classList.add(determineArrowH());
+        if (position === 'top') {
+          arrow?.classList.add('popover__arrow--bottom');
+        }
+        if (position === 'bottom') {
+          arrow?.classList.add('popover__arrow--top');
+        }
+        console.log(arrow);
       }
     }
   }
@@ -215,6 +274,10 @@ export class Popover extends LitElement {
       const location: DOMRect = this.getTargetLocation();
       const {left, right, y, width} = location;
       this.setPopoverLocation(left, right, y, width);
+      let bg = getComputedStyle(
+        document.querySelector('#' + this.id)!
+      ).getPropertyValue('--color__background');
+      console.log({bg});
     });
   }
 
@@ -231,6 +294,72 @@ export class Popover extends LitElement {
         </span>
         <div class="c-popover__main h-hide" id="${this.popoverBody}">
           <slot name="popover__body"></slot>
+          ${this.showArrow === 'true'
+            ? html`
+                <svg
+                  class="popover__arrow"
+                  id="${this.id}-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24.66 12.58"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: var(--color__background);
+                      }
+                      .cls-2,
+                      .cls-3 {
+                        fill: none;
+                        stroke: var(--popover__border_color);
+                      }
+                      .cls-2 {
+                        stroke-linecap: square;
+                        stroke-miterlimit: 10;
+                      }
+                      .cls-3 {
+                        stroke-linejoin: round;
+                      }
+                    </style>
+                  </defs>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="Layer_1-2" data-name="Layer 1">
+                      <polygon
+                        class="cls-1"
+                        points="12.39 0.68 24.14 11.7 0.65 11.7 12.39 0.68"
+                      />
+                      <line
+                        class="cls-2"
+                        x1="0.71"
+                        y1="11.67"
+                        x2="12.39"
+                        y2="0.71"
+                      />
+                      <line
+                        class="cls-2"
+                        x1="23.96"
+                        y1="11.55"
+                        x2="12.39"
+                        y2="0.71"
+                      />
+                      <line
+                        class="cls-3"
+                        x1="0.04"
+                        y1="12.08"
+                        x2="1.04"
+                        y2="12.08"
+                      />
+                      <line
+                        class="cls-3"
+                        x1="24.64"
+                        y1="12.03"
+                        x2="23.64"
+                        y2="12.03"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              `
+            : html`<span></span>`}
         </div>
       </div>
     `;

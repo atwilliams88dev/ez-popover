@@ -11,6 +11,7 @@ export declare class Popover extends LitElement {
     protected popoverTarget: string;
     protected popoverBody: string;
     id: string;
+    showArrow: string;
     /**
      * If you want to pass your own custom animation you can pass in a keyframes array and the keyframeOptions
      * @link https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats

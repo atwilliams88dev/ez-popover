@@ -43,17 +43,20 @@ npm install ez-popover
 
 ## CSS Variables available
 
---font\_\_family: Arial; <br/>
---font\_\_size: 17px;<br/>
---color\_\_background: #333;<br/>
---color\_\_text: white;<br/>
---popover\_\_padding: 4px 16px;<br/>
---popover\_\_border-radius: 8px;<br/>
---popover\_\_textAlign: center;<br/>
---popover\_\_maxWidth: 380px;<br/>
---popover\_\_minWidth: 0px;<br/>
---popover\_\_border: none;<br/>
---popover\_\_boxShadow: none;<br/>
+```css
+--font__family: Arial;
+--font__size: 17px;
+--color__background: #333;
+--color__text: white;
+--popover__padding: 4px 16px;
+--popover__border-radius: 8px;
+--popover__textAlign: center;
+--popover__maxWidth: 380px;
+--popover__minWidth: 0px;
+--popover__border_width: none;
+--popover__border_color: none;
+--popover__boxShadow: none;
+```
 
 ## CSS Example
 
@@ -71,11 +74,12 @@ IMPORTANT - YOU MIGHT WANT TO CHANGE THE MIN OR MAX WIDTH OF THE POPOVER
   <ul>
     <li>keyframes - see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats">MDN link</a></li>
     <li>keyframeOptions - see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats">MDN link</a></li>
-    <li>disableHover: boolean </li>    
+    <li>disableHover: string - "true" | "false" </li>  
+    <li>showArrow: string - "true" | "false" </li>      
   </ul>
 
 ```html
-<ez-popover disableHover="true"></ez-popover>
+<ez-popover disableHover="true" showArrow="true"></ez-popover>
 ```
 
 ## Programmatically Close Example
