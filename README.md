@@ -11,7 +11,7 @@ Is a very simple to use popover element. We leverage the power of CSS variables 
 ```js
 <script
   type="module"
-  src="https://unpkg.com/ez-popover@1.0.32/index.js"
+  src="https://unpkg.com/ez-popover@1.0.33/index.js"
 ></script>
 ```
 
