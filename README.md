@@ -11,7 +11,7 @@ Is a very simple to use popover element. We leverage the power of CSS variables 
 ```js
 <script
   type="module"
-  src="https://unpkg.com/ez-popover@1.0.31/index.js"
+  src="https://unpkg.com/ez-popover@1.0.32/index.js"
 ></script>
 ```
 
@@ -23,7 +23,10 @@ npm install ez-popover
 
 ```html
 <head>
-  <script type="module" src="../node_modules/ez-popover/index.js"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/ez-popover@1.0.32/index.js"
+  ></script>
 </head>
 <div id="p1">
   <!-- A wrapping element is NOT required but is recommended -->
@@ -56,6 +59,8 @@ npm install ez-popover
 --popover__border_width: none;
 --popover__border_color: none;
 --popover__boxShadow: none;
+--popover__zIndex: 100;
+--arrow__indent: 12px;
 ```
 
 ## CSS Example
@@ -64,8 +69,8 @@ IMPORTANT - YOU MIGHT WANT TO CHANGE THE MIN OR MAX WIDTH OF THE POPOVER
 
 ```css
 #p1 ez-popover {
-  --font__size: 14px;<br/>
-  --popover__minWidth: 200px;<br/>
+  --font__size: 14px;
+  --popover__minWidth: 200px;
 }
 ```
 

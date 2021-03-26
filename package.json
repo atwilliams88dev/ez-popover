@@ -1,6 +1,6 @@
 {
   "name": "ez-popover",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "The easiest popover component you've ever used",
   "main": "index.js",
   "type": "module",

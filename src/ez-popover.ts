@@ -30,6 +30,8 @@ export class Popover extends LitElement {
       --popover__boxShadow: none;
       --popover__border_color: #ccc;
       --popover__border_width: 0px;
+      --popover__zIndex: 100;
+      --arrow__indent: 12px;
     }
 
     .c-popover {
@@ -55,6 +57,7 @@ export class Popover extends LitElement {
       max-width: var(--popover__maxWidth);
       box-shadow: var(--popover__boxShadow);
       border: var(--popover__border_width) solid var(--popover__border_color);
+      z-index: var(--popover__zIndex);
     }
     .popover__arrow {
       position: absolute;
@@ -70,13 +73,13 @@ export class Popover extends LitElement {
       margin-top: -3px;
     }
     .popover__arrow--left {
-      left: 12px;
+      left: var(--arrow__indent);
     }
     .popover__arrow--right {
-      right: 12px;
+      right: var(--arrow__indent);
     }
     .popover__arrow--center {
-      left: calc(50% - 12px);
+      left: calc(50% - var(--arrow__indent));
     }
     .h-hide {
       visibility: hidden !important;
