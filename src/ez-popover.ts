@@ -79,7 +79,7 @@ export class Popover extends LitElement {
       right: var(--arrow__indent);
     }
     .popover__arrow--center {
-      left: calc(50% - var(--arrow__indent));
+      left: calc(50% - 12px);
     }
     .h-hide {
       visibility: hidden !important;
